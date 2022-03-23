@@ -2,28 +2,27 @@ const { Telegraf, Markup } = require('telegraf');
 
 require('dotenv').config();
 
-const text = require('./const');
+const data = require('./const');
 
 const bot = new Telegraf(process.env.BOT_TOCKEN);
 bot.start(ctx =>
     ctx.reply(
         `Привіт ${
             ctx.message.from.first_name ? ctx.message.from.first_name : 'anonym'
-        }`
+        }! Я бот містобудівного кадастру.`
     )
 );
-bot.help(ctx => ctx.reply(text.commands));
+bot.help(ctx => ctx.reply(data.commands));
 
-bot.command('manage', async ctx => {
+bot.command('portals', async ctx => {
     try {
         await ctx.replyWithHTML(
-            '<b>Sites</b>',
+            '<b>Посилання на геопортали містобудівного кадастру</b>',
             Markup.inlineKeyboard([
                 [
-                    Markup.button.callback('Зовнішній портал', 'btn_1'),
-                    Markup.button.callback('JS', 'btn_2'),
-                ],
-                [Markup.button.callback('HTML', 'btn_3')],
+                    Markup.button.callback('Зовнішній портал', 'btn_portal_out'),
+                    Markup.button.callback('Внутрішній портал', 'btn_portal_inner'),
+                ]
             ])
         );
     } catch (err) {
@@ -31,7 +30,7 @@ bot.command('manage', async ctx => {
     }
 });
 
-function addActionBot(name, src, text) {
+function addActionBot(name, src, preview, text) {
     bot.action(name, async ctx => {
         try {
             await ctx.answerCbQuery();
@@ -41,7 +40,7 @@ function addActionBot(name, src, text) {
                 });
             }
             await ctx.replyWithHTML(text, {
-                disable_web_page_preview: true,
+                disable_web_page_preview: preview,
             });
         } catch (err) {
             console.log(err);
@@ -49,8 +48,8 @@ function addActionBot(name, src, text) {
     });
 }
 
-addActionBot('btn_1', './img/icon.png', text.text)
-
+addActionBot('btn_portal_out', false, false, data.portals[0]);
+addActionBot('btn_portal_inner', false, true, data.portals[1]);
 
 bot.launch();
 
