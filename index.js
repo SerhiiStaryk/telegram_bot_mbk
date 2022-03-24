@@ -30,7 +30,7 @@ bot.command('portals', async ctx => {
     }
 });
 
-bot.command('zonning', async ctx => {
+bot.command('zoning', async ctx => {
     try {
         await ctx.replyWithHTML(
             '<b>Дати затвердження планів зонування:</b>',
@@ -45,6 +45,52 @@ bot.command('zonning', async ctx => {
                     Markup.button.callback('Франківський район', 'btn_district_fra'),
                     Markup.button.callback('Шевченківський район', 'btn_district_schev'),
                 ]
+            ])
+        );
+    } catch (err) {
+        console.error(err);
+    }
+});
+
+bot.command('genplan', async ctx => {
+    try {
+        await ctx.replyWithHTML(
+            '<b>Дати затвердження генеральних планів:</b>',
+            Markup.inlineKeyboard([
+                [
+                    Markup.button.callback('селище міського типу Брюховичі', 'btn_genplan_bryh'),
+                    Markup.button.callback('місто Винники', 'btn_genplan_vyn'),
+                    Markup.button.callback('селище міського типу Рудне', 'btn_genplan_rydn'),
+                ],
+                [
+                    Markup.button.callback('село Великі Грибовичі', 'btn_genplan_vgryb'),
+                    Markup.button.callback('село Збиранка', 'btn_genplan_zbur'),
+                    Markup.button.callback('село Малі Грибовичі', 'btn_genplan_mgryb'),
+                ],
+                [
+                    Markup.button.callback('село Воля-Гомулецька', 'btn_genplan_vhol'),
+                    Markup.button.callback('село Гряда', 'btn_genplan_hriad'),
+                    Markup.button.callback('місто Дубляни', 'btn_genplan_dub'),
+                ],
+                [
+                    Markup.button.callback('село Малі Підліски', 'btn_genplan_mpidl'),
+                    Markup.button.callback('село Ситихів', 'btn_genplan_sytyh'),
+                    Markup.button.callback('село Зарудці', 'btn_genplan_zaryd'),
+                ],
+                [
+                    Markup.button.callback('село Завадів', 'btn_genplan_zavad'),
+                    Markup.button.callback('село Зашків', 'btn_genplan_zashk'),
+                    Markup.button.callback('село Малехів', 'btn_genplan_maleh'),
+                ],
+                [
+                    Markup.button.callback('село Лисиничі', 'btn_genplan_lys'),
+                    Markup.button.callback('село Підбірці', 'btn_genplan_pidb'),
+                    Markup.button.callback('село Підрясне', 'btn_genplan_pidr'),
+                ],
+                [
+                    Markup.button.callback('село Рясне-Руське', 'btn_genplan_rrus'),
+                ],
+
             ])
         );
     } catch (err) {
@@ -79,6 +125,26 @@ addActionBot('btn_district_lych', false, true, data.districts[2]);
 addActionBot('btn_district_syh', false, true, data.districts[3]);
 addActionBot('btn_district_fra', false, true, data.districts[4]);
 addActionBot('btn_district_schev', false, true, data.districts[5]);
+
+addActionBot('btn_genplan_bryh', false, true, data.genplans[0]);
+addActionBot('btn_genplan_vyn', false, true, data.genplans[1]);
+addActionBot('btn_genplan_rydn', false, true, data.genplans[2]);
+addActionBot('btn_genplan_vgryb', false, true, data.genplans[3]);
+addActionBot('btn_genplan_zbur', false, true, data.genplans[3]);
+addActionBot('btn_genplan_mgryb', false, true, data.genplans[3]);
+addActionBot('btn_genplan_vhol', false, true, data.genplans[4]);
+addActionBot('btn_genplan_hriad', false, true, data.genplans[4]);
+addActionBot('btn_genplan_dub', false, true, data.genplans[14]);
+addActionBot('btn_genplan_mpidl', false, true, data.genplans[5]);
+addActionBot('btn_genplan_sytyh', false, true, data.genplans[6]);
+addActionBot('btn_genplan_zaryd', false, true, data.genplans[7]);
+addActionBot('btn_genplan_zavad', false, true, data.genplans[8]);
+addActionBot('btn_genplan_zashk', false, true, data.genplans[8]);
+addActionBot('btn_genplan_maleh', false, true, data.genplans[9]);
+addActionBot('btn_genplan_lys', false, true, data.genplans[10]);
+addActionBot('btn_genplan_pidb', false, true, data.genplans[11]);
+addActionBot('btn_genplan_pidr', false, true, data.genplans[12]);
+addActionBot('btn_genplan_rrus', false, true, data.genplans[13]);
 
 bot.launch();
 
