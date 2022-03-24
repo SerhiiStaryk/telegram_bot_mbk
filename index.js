@@ -30,6 +30,28 @@ bot.command('portals', async ctx => {
     }
 });
 
+bot.command('zonning', async ctx => {
+    try {
+        await ctx.replyWithHTML(
+            '<b>Дати затвердження планів зонування:</b>',
+            Markup.inlineKeyboard([
+                [
+                    Markup.button.callback('Галицький район', 'btn_district_hal'),
+                    Markup.button.callback('Залізничний район', 'btn_district_zal'),
+                    Markup.button.callback('Личаківський район', 'btn_district_lych'),
+                ],
+                [
+                    Markup.button.callback('Сихівський район', 'btn_district_syh'),
+                    Markup.button.callback('Франківський район', 'btn_district_fra'),
+                    Markup.button.callback('Шевченківський район', 'btn_district_schev'),
+                ]
+            ])
+        );
+    } catch (err) {
+        console.error(err);
+    }
+});
+
 function addActionBot(name, src, preview, text) {
     bot.action(name, async ctx => {
         try {
@@ -50,6 +72,13 @@ function addActionBot(name, src, preview, text) {
 
 addActionBot('btn_portal_out', false, false, data.portals[0]);
 addActionBot('btn_portal_inner', false, true, data.portals[1]);
+
+addActionBot('btn_district_hal', false, true, data.districts[0]);
+addActionBot('btn_district_zal', false, true, data.districts[1]);
+addActionBot('btn_district_lych', false, true, data.districts[2]);
+addActionBot('btn_district_syh', false, true, data.districts[3]);
+addActionBot('btn_district_fra', false, true, data.districts[4]);
+addActionBot('btn_district_schev', false, true, data.districts[5]);
 
 bot.launch();
 
