@@ -36,14 +36,14 @@ bot.command('zoning', async ctx => {
             '<b>Дати затвердження планів зонування:</b>',
             Markup.inlineKeyboard([
                 [
-                    Markup.button.callback('Галицький район', 'btn_district_hal'),
-                    Markup.button.callback('Залізничний район', 'btn_district_zal'),
-                    Markup.button.callback('Личаківський район', 'btn_district_lych'),
+                    Markup.button.callback('Галицький р-н', 'btn_district_hal'),
+                    Markup.button.callback('Залізничний р-н', 'btn_district_zal'),
+                    Markup.button.callback('Личаківський р-н', 'btn_district_lych'),
                 ],
                 [
-                    Markup.button.callback('Сихівський район', 'btn_district_syh'),
-                    Markup.button.callback('Франківський район', 'btn_district_fra'),
-                    Markup.button.callback('Шевченківський район', 'btn_district_schev'),
+                    Markup.button.callback('Сихівський р-н', 'btn_district_syh'),
+                    Markup.button.callback('Франківський р-н', 'btn_district_fra'),
+                    Markup.button.callback('Шевченківський р-н', 'btn_district_schev'),
                 ]
             ])
         );
@@ -58,38 +58,44 @@ bot.command('genplan', async ctx => {
             '<b>Дати затвердження генеральних планів:</b>',
             Markup.inlineKeyboard([
                 [
-                    Markup.button.callback('селище міського типу Брюховичі', 'btn_genplan_bryh'),
-                    Markup.button.callback('місто Винники', 'btn_genplan_vyn'),
-                    Markup.button.callback('селище міського типу Рудне', 'btn_genplan_rydn'),
+                    Markup.button.callback('смт. Брюховичі', 'btn_genplan_bryh'),
+                    Markup.button.callback('м. Винники', 'btn_genplan_vyn')
                 ],
                 [
-                    Markup.button.callback('село Великі Грибовичі', 'btn_genplan_vgryb'),
-                    Markup.button.callback('село Збиранка', 'btn_genplan_zbur'),
-                    Markup.button.callback('село Малі Грибовичі', 'btn_genplan_mgryb'),
+                    Markup.button.callback('смт. Рудне', 'btn_genplan_rydn'),
+                    Markup.button.callback('с. Великі Грибовичі', 'btn_genplan_vgryb')
                 ],
                 [
-                    Markup.button.callback('село Воля-Гомулецька', 'btn_genplan_vhol'),
-                    Markup.button.callback('село Гряда', 'btn_genplan_hriad'),
-                    Markup.button.callback('місто Дубляни', 'btn_genplan_dub'),
+                    Markup.button.callback('с. Збиранка', 'btn_genplan_zbur'),
+                    Markup.button.callback('с. Малі Грибовичі', 'btn_genplan_mgryb')
                 ],
                 [
-                    Markup.button.callback('село Малі Підліски', 'btn_genplan_mpidl'),
-                    Markup.button.callback('село Ситихів', 'btn_genplan_sytyh'),
-                    Markup.button.callback('село Зарудці', 'btn_genplan_zaryd'),
+                    Markup.button.callback('с. Воля-Гомулецька', 'btn_genplan_vhol'),
+                    Markup.button.callback('с. Гряда', 'btn_genplan_hriad')
                 ],
                 [
-                    Markup.button.callback('село Завадів', 'btn_genplan_zavad'),
-                    Markup.button.callback('село Зашків', 'btn_genplan_zashk'),
-                    Markup.button.callback('село Малехів', 'btn_genplan_maleh'),
+                    Markup.button.callback('м. Дубляни', 'btn_genplan_dub'),
+                    Markup.button.callback('с. Малі Підліски', 'btn_genplan_mpidl')
                 ],
                 [
-                    Markup.button.callback('село Лисиничі', 'btn_genplan_lys'),
-                    Markup.button.callback('село Підбірці', 'btn_genplan_pidb'),
-                    Markup.button.callback('село Підрясне', 'btn_genplan_pidr'),
+                    Markup.button.callback('с. Ситихів', 'btn_genplan_sytyh'),
+                    Markup.button.callback('с. Зарудці', 'btn_genplan_zaryd')
                 ],
                 [
-                    Markup.button.callback('село Рясне-Руське', 'btn_genplan_rrus'),
+                    Markup.button.callback('с. Завадів', 'btn_genplan_zavad'),
+                    Markup.button.callback('с. Зашків', 'btn_genplan_zashk')
                 ],
+                [
+                    Markup.button.callback('с. Малехів', 'btn_genplan_maleh'),
+                    Markup.button.callback('с. Лисиничі', 'btn_genplan_lys')
+                ],
+                [
+                    Markup.button.callback('с. Підбірці', 'btn_genplan_pidb'),
+                    Markup.button.callback('с. Підрясне', 'btn_genplan_pidr')
+                ],
+                [
+                    Markup.button.callback('с Рясне-Руське', 'btn_genplan_rrus')
+                ]
 
             ])
         );
